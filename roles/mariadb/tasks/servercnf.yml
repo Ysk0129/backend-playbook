@@ -1,0 +1,6 @@
+---
+
+- name: template server.cnf
+  template:
+    src: server.cnf.j2
+    dest: /etc/my.cnf.d/server.cnf

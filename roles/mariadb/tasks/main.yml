@@ -1,0 +1,5 @@
+---
+
+- include: install.yml
+- include: servercnf.yml
+- include: galeracluster.yml

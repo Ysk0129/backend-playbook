@@ -1,0 +1,23 @@
+---
+
+- name: install dependency
+  yum:
+    name: "{{ item }}"
+  with_items: 
+    - curl-devel
+    - expat-devel
+    - gettext-devel
+    - openssl-devel
+    - zlib-devel
+    - perl-ExtUtils-MakeMaker
+    - cmake
+    - gcc
+
+- name: get source
+  shell: >
+    cd /usr/local/src/ && \
+    curl -o git-2.9.0.tar.gz  https://www.kernel.org/pub/software/scm/git/git-2.9.0.tar.gz && \
+    tar vfx git-2.9.0.tar.gz && \
+    cd git-2.9.0 && \
+    make prefix=/usr/local all && \
+    make prefix=/usr/local install

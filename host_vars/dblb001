@@ -1,0 +1,9 @@
+---
+
+haproxy:
+    frontend_port: 3306
+    backend_servers:
+        - host: db001
+          port: 3306
+        - host: db002
+          port: 3306

@@ -1,0 +1,30 @@
+---
+
+- name: install dependency
+  yum:
+    name: "{{ item }}"
+  with_items: 
+    - gcc
+    - zlib-devel
+    - bzip2
+    - bzip2-devel
+    - readline
+    - readline-devel
+    - sqlite
+    - sqlite-devel
+    - openssl
+    - openssl-devel
+
+- name: clone pyenv
+  git:
+    repo: https://github.com/yyuu/pyenv.git
+    dest: /usr/local/.pyenv
+
+- name: copy pyenv.sh
+  copy:
+    src: pyenv.sh
+    dest: /etc/profile.d/pyenv.sh
+    mode: 0644
+
+- name: install python
+  shell: "source /etc/profile.d/pyenv.sh && pyenv install {{ python_install_version }} && pyenv global {{ python_install_version }}"

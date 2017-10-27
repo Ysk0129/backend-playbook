@@ -1,0 +1,11 @@
+---
+
+- name: new galera cluster
+  shell: galera_new_cluster
+  when: mariadb.is_first is defined
+
+- name: start MariaDB
+  service:
+    name: mysql
+    state: started
+  when: mariadb.is_first is not defined

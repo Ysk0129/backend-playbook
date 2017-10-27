@@ -1,0 +1,11 @@
+---
+
+- hosts: webapi
+  become: yes
+  roles:
+    - role: roles/git
+      tags: ["role_git"]
+    - role: roles/python
+      tags: ["role_python"]
+    - role: roles/nginx
+      tags: ["role_nginx"]

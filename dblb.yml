@@ -1,0 +1,9 @@
+---
+
+- hosts: dblb
+  become: yes
+  roles:
+    - role: roles/git
+      tags: ["role_git"]
+    - role: roles/haproxy
+      tags: ["role_haproxy"]

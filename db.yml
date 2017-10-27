@@ -1,0 +1,9 @@
+---
+
+- hosts: db
+  become: yes
+  roles:
+    - role: roles/git
+      tags: ["role_git"]
+    - role: roles/mariadb
+      tags: ["role_mariadb"]

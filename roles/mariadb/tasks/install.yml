@@ -1,0 +1,16 @@
+---
+
+- name: template MariaDB.repo
+  template:
+    src: MariaDB.repo.j2
+    dest: /etc/yum.repos.d/MariaDB.repo
+
+- name: install MariaDB and galera
+  yum:
+    name: "{{ item }}"
+    enablerepo: mariadb
+    state: present
+  with_items: 
+    - MariaDB-server
+    - MariaDB-client
+    - galera

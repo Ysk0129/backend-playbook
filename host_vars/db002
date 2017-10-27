@@ -1,0 +1,18 @@
+---
+
+mariadb:
+  version: 10.2.9
+  mysqld_cnf:
+    - "character-set-server=utf8"
+  server_cnf:
+    - "wsrep_cluster_name=DBCLUSTER"
+    - "wsrep_on=ON"
+    - "wsrep_provider='/usr/lib64/galera/libgalera_smm.so'"
+    - "wsrep_cluster_address='gcomm://db001,db002'"
+    - "binlog_format=row"
+    - "default_storage_engine=InnoDB"
+    - "innodb_autoinc_lock_mode=2"
+    - "wsrep_slave_threads=4"
+    - "innodb_locks_unsafe_for_binlog=1"
+    - "wsrep_node_address=db002"
+    - "wsrep_sst_method=rsync"

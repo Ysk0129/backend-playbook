@@ -1,0 +1,30 @@
+[server]
+
+{% for item in mariadb.server_cnf | default() %}
+{{ item }}
+{% endfor %}
+
+[mysqld]
+
+{% for item in mariadb.mysqld_cnf | default() %}
+{{ item }}
+{% endfor %}
+
+[galera]
+
+{% for item in mariadb.galera_cnf | default() %}
+{{ item }}
+{% endfor %}
+
+[embedded]
+
+{% for item in mariadb.embedded_cnf | default() %}
+{{ item }}
+{% endfor %}
+
+[mariadb]
+
+{% for item in mariadb.mariadb_cnf | default() %}
+{{ item }}
+{% endfor %}
+
