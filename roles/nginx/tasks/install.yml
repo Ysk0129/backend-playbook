@@ -9,3 +9,8 @@
     name: nginx
     enablerepo: nginx
     state: present
+
+- name: template default.conf
+  template:
+    src: default.conf.j2
+    dest: /etc/nginx/conf.d/default.conf
